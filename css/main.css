@@ -185,8 +185,8 @@ th {
 }
 body {
   position: relative;
-  font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 14px;
+  font-family: "Microsoft YaHei", Verdana, sans-serif;
+  font-size: 20px;
   line-height: 2;
   color: #555;
   background: #fff;
@@ -216,7 +216,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Georgia, sans;
 }
 h2,
 h3,
@@ -396,7 +396,7 @@ dd {
 .use-motion .motion-element {
   opacity: 0;
 }
-input[id$=search-input] {
+#local-search-input {
   padding: 3px;
   border: none;
   text-indent: 14px;
@@ -407,10 +407,10 @@ input[id$=search-input] {
   background: inherit;
   opacity: 0.5;
 }
-input[id$=search-input]:focus {
+#local-search-input:focus {
   opacity: 1;
 }
-.fa-search {
+.search-icon {
   position: absolute;
   top: 9px;
 }
@@ -421,6 +421,8 @@ table {
   border-spacing: 0;
   border: 1px solid #ddd;
   font-size: 14px;
+  table-layout: fixed;
+  word-wrap: break-word;
 }
 table>tbody>tr:nth-of-type(odd) {
   background-color: #f9f9f9;
@@ -501,12 +503,11 @@ pre,
   margin: 20px 0;
   padding: 15px;
   overflow: auto;
-  font-size: 13px;
+  font-size: 20px;
   color: #c5c8c6;
   line-height: 1.6;
 }
-.highlight .gutter pre,
-.gist .gist-file .gist-data .line-numbers {
+.highlight .gutter pre {
   color: #666;
 }
 pre,
@@ -562,52 +563,6 @@ pre code {
 .highlight .line {
   height: 20px;
 }
-.gist {
-  margin: 20px 0;
-  border-style: solid;
-  border-color: #ccc;
-  border-width: 1px 0;
-  background: #1d1f21;
-  padding: 15px 40px 15px 15px;
-}
-.gist .gist-file {
-  border: none;
-  font-family: "Input Mono", "PT Mono", Consolas, Monaco, Menlo, monospace;
-  margin: 0;
-}
-.gist .gist-file .gist-data {
-  background: none;
-  border: none;
-}
-.gist .gist-file .gist-data .line-numbers {
-  background: none;
-  border: none;
-  padding: 0 20px 0 0;
-}
-.gist .gist-file .gist-data .line-data {
-  padding: 0 !important;
-}
-.gist .gist-file .highlight {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-.gist .gist-file .gist-meta {
-  background: #1d1f21;
-  color: #969896;
-  font: 13px Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
-  text-shadow: 0 0;
-  padding: 0;
-  margin-top: 1em;
-  margin-left: 40px;
-}
-.gist .gist-file .gist-meta a {
-  color: color-link;
-  font-weight: normal;
-}
-.gist .gist-file .gist-meta a:hover {
-  text-decoration: underline;
-}
 pre .comment {
   color: #969896;
 }
@@ -630,7 +585,8 @@ pre .preprocessor,
 pre .built_in,
 pre .literal,
 pre .params,
-pre .constant {
+pre .constant,
+pre .command {
   color: #de935f;
 }
 pre .ruby .class .title,
@@ -642,7 +598,10 @@ pre .value,
 pre .inheritance,
 pre .header,
 pre .ruby .symbol,
-pre .xml .cdata {
+pre .xml .cdata,
+pre .special,
+pre .number,
+pre .formula {
   color: #b5bd68;
 }
 pre .title,
@@ -1029,8 +988,16 @@ pre .javascript .function {
 .menu .menu-item a:hover {
   border-bottom-color: #222;
 }
+.menu .menu-item .fa {
+  margin-right: 5px;
+}
 .use-motion .menu-item {
   opacity: 0;
+}
+@media (max-width: 767px) {
+  .post-body {
+    word-break: break-all;
+  }
 }
 .post-body .fancybox img {
   display: block !important;
@@ -1043,7 +1010,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: 10px auto 15px;
   text-align: center;
-  font-size: 14px;
+  font-size: 20px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1313,6 +1280,7 @@ pre .javascript .function {
   font-size: 14px;
   background: transparent;
   border-radius: 0;
+  line-height: 2;
 }
 .posts-expand .post-tags {
   margin-top: 40px;
@@ -1544,7 +1512,22 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bd130b;
+  background: #a37c0b;
+}
+.links-of-blogroll {
+  font-size: 13px;
+}
+.links-of-blogroll-title {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.links-of-blogroll-list {
+  margin: 0;
+  padding: 0;
+}
+.links-of-blogroll-item {
+  padding: 2px 10px;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -1954,23 +1937,9 @@ a.search-result {
   border-bottom: 1px dashed #4088b8;
   font-weight: bold;
 }
-#search-result {
-  display: none;
-  position: absolute;
-  width: 146px;
-  border: 1px solid #ccc;
-  background: #fff;
-  cursor: default;
-  overflow: auto;
-  margin: 0px;
-  z-index: 999;
-}
 #local-search-result {
   height: 90%;
   overflow: auto;
-}
-.site-search-form {
-  background: #f5f5f5;
 }
 .popup {
   display: none;
@@ -2081,8 +2050,7 @@ a.search-result {
   list-style: none;
 }
 .category-all-page .category-list-item {
-  display: inline-block;
-  margin: 10px;
+  margin: 5px 10px;
 }
 .category-all-page .category-list-count {
   color: #bbb;
@@ -2094,6 +2062,9 @@ a.search-result {
 .category-all-page .category-list-count:after {
   display: inline;
   content: ") ";
+}
+.category-all-page .category-list-child {
+  padding-left: 10px;
 }
 .page-post-detail .sidebar-toggle-line {
   background: #87daff;
@@ -2332,7 +2303,7 @@ hr {
 }
 .post-more-link a {
   padding: 0;
-  font-size: 14px;
+  font-size: 20px;
   color: #666;
   background: none;
   border: none;
