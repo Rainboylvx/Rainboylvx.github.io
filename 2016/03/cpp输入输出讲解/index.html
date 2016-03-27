@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Rainboy">
 <meta property="og:description" content="##说明我们使用的是C++语言,C++语言是对C语言的拓展,主要加上的是面对对象的部分,它的输出的风格是cin和cout.C++语言为了保持对C语言的兼容,同时也有C风格的的输入输出scanf,printf.
 在具体的学习中,我是更倾向使用scanf,printf,这里的原因和风格有一定关系,但是最重要的是:在以完成题目的为前提下,选一个简单的来用,keep it simple and stupi">
-<meta property="og:updated_time" content="2016-03-27T00:38:11.146Z">
+<meta property="og:updated_time" content="2016-03-27T00:42:06.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++输入输出讲解">
 <meta name="twitter:description" content="##说明我们使用的是C++语言,C++语言是对C语言的拓展,主要加上的是面对对象的部分,它的输出的风格是cin和cout.C++语言为了保持对C语言的兼容,同时也有C风格的的输入输出scanf,printf.
@@ -145,7 +145,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Accueil
+            Startseite
           </a>
         </li>
       
@@ -155,7 +155,7 @@
             
               <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -165,7 +165,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -228,7 +228,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-03-27T08:37:00+08:00" content="2016-03-27">
               2016-03-27
             </time>
@@ -240,7 +240,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/课件/" itemprop="url" rel="index">
@@ -483,7 +483,40 @@ return 0;
 <p>与printf相比,如果我想输出一行话,只要写一个长链串起来就可以了.</p>
 <pre><code>cout &lt;&lt; &quot;hello word&quot; &lt;&lt; 10 &lt;&lt; &#39; &#39; &lt;&lt; endl;
 </code></pre><h3 id="cin-cout-控制符"><a href="#cin-cout-控制符" class="headerlink" title="cin cout 控制符"></a>cin cout 控制符</h3><p><code>#include &lt;iomanip&gt;</code></p>
-<p>| dec             | %d                    |<br>| hex             | %x                    |<br>| oct             | %o                    |<br>| setfill(‘c’)    | 填充字符为c           |<br>| setw(n)         | 宽度为n               |<br>| setprecision(b) | 浮点数小数部分长度为n |</p>
+<table>
+<thead>
+<tr>
+<th>cout 控制</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dec</td>
+<td>%d</td>
+</tr>
+<tr>
+<td>hex</td>
+<td>%x</td>
+</tr>
+<tr>
+<td>oct</td>
+<td>%o</td>
+</tr>
+<tr>
+<td>setfill(‘c’)</td>
+<td>填充字符为c</td>
+</tr>
+<tr>
+<td>setw(n)</td>
+<td>宽度为n</td>
+</tr>
+<tr>
+<td>setprecision(b)</td>
+<td>浮点数小数部分长度为n</td>
+</tr>
+</tbody>
+</table>
 <h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><pre><code>/*一个按进制输出的例子*/
 
 #include&lt;iostream.h&gt;
@@ -618,10 +651,10 @@ cout&lt;&lt;x&lt;&lt;&#39; &#39;&lt;&lt;y&lt;&lt;&#39; &#39;&lt;&lt;z&lt;&lt;end
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table Des Matières
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Ensemble
+            Übersicht
           </li>
         </ul>
       
@@ -638,7 +671,7 @@ cout&lt;&lt;x&lt;&lt;&#39; &#39;&lt;&lt;y&lt;&lt;&#39; &#39;&lt;&lt;z&lt;&lt;end
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">12</span>
-              <span class="site-state-item-name">articles</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -646,7 +679,7 @@ cout&lt;&lt;x&lt;&lt;&#39; &#39;&lt;&lt;y&lt;&lt;&#39; &#39;&lt;&lt;z&lt;&lt;end
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">Kategorien</span>
               </a>
             </div>
           
@@ -655,7 +688,7 @@ cout&lt;&lt;x&lt;&lt;&#39; &#39;&lt;&lt;y&lt;&lt;&#39; &#39;&lt;&lt;z&lt;&lt;end
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -718,11 +751,11 @@ cout&lt;&lt;x&lt;&lt;&#39; &#39;&lt;&lt;y&lt;&lt;&#39; &#39;&lt;&lt;z&lt;&lt;end
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Thème -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
