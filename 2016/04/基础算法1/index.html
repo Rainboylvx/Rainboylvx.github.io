@@ -90,7 +90,7 @@ n个数字只n-1个数字就可以了,最后一个数字自动就在第一位
 <meta property="og:image" content="http://yoursite.com/images/归并排序2.png">
 <meta property="og:image" content="http://yoursite.com/images/快速排序.png">
 <meta property="og:image" content="http://yoursite.com/images/快速排序2.png">
-<meta property="og:updated_time" content="2016-04-09T16:45:55.241Z">
+<meta property="og:updated_time" content="2016-04-09T23:57:11.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法学习">
 <meta name="twitter:description" content="我们要学习的排序算法有: 冒泡排序,归并排序,快速排序,使用C++的sort.
@@ -469,7 +469,54 @@ int main(){
     quicksort(0,len_a-1);
     return 0;
 }
-</code></pre><h2 id="C-内部函数-sort"><a href="#C-内部函数-sort" class="headerlink" title="C++内部函数 sort"></a>C++内部函数 sort</h2><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><ul>
+</code></pre><h2 id="C-内部函数-sort"><a href="#C-内部函数-sort" class="headerlink" title="C++内部函数 sort"></a>C++内部函数 sort</h2><p>下面的我们来使用C++本身给我们提供的排序函数.</p>
+<pre><code>sort(a+m,a+n);      //[a+m,a+n) 范围内的元素进行排序
+sort(a+m,a+n,cmp); //cmp 是函数
+</code></pre><p>样例代码</p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int a[100];
+int main(){
+    int i;
+    for (i=0;i&lt;10;i++){ //输入10个数
+        scanf(&quot;%d&quot;,&amp;a[i]);
+    }
+
+    sort(a+0,a+10); //数组名+数字的本质是指针操作
+    for(i=0;i&lt;10;i++)
+        printf(&quot;%d &quot;,a[i]);
+
+    return 0;
+}
+</code></pre><p>如果我们想让从大到小排序怎么办?</p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int a[100];
+
+/* 原是是为真的时候,第一个数字放前面 */
+int mycmp(int &amp;a,int &amp;b){ 
+    if(a &gt; b)
+        return 1;
+    return 0;
+}
+
+int main(){
+    int i;
+    for (i=0;i&lt;10;i++){ //输入10个数
+        scanf(&quot;%d&quot;,&amp;a[i]);
+    }
+
+    sort(a+0,a+10,mycmp); //数组名+数字的本质是指针操作
+    for(i=0;i&lt;10;i++)
+        printf(&quot;%d &quot;,a[i]);
+
+    return 0;
+}
+</code></pre><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><ul>
 <li><a href="http://cojs.tk/cogs/problem/problem.php?pid=74" target="_blank" rel="external">明明的随机数</a></li>
 <li><a href="http://www.rqnoj.cn/problem/350" target="_blank" rel="external">找第k小的数</a></li>
 <li><a href="http://cojs.tk/cogs/problem/problem.php?pid=122" target="_blank" rel="external">NOIP2007奖学金</a></li>
